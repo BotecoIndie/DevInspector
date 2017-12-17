@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/progress-container.css">
+  <link rel="stylesheet" href="css/dev-container.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+  <script src="./js/main.js"></script>
+
+  <div class="container">
+
+    <div class="row top-button-wrapper">
+      <div class="col s4 waves-effect waves-light center-align top-button">Devs</div>
+      <div class="col s4 waves-effect waves-light center-align top-button">Progressos</div>
+      <div class="col s4 waves-effect waves-light center-align top-button">Teste</div>
+    </div>
+
+    <div class="dev-container">
+
+    </div>
+    <div class="progress-container">
+
+      <div class="content-card">
+        <div class="container-dev-avatar">
+          <img class="circle dev-avatar" src="https://cdn.discordapp.com/avatars/148140588703809537/bc66573415e88574b5c508ec48a2d5fb.webp">
+        </div>
+        <div class="container-dev">
+          <div class="row" style="height: 100%">
+            <div class="col s4 container-dev-name valign-wrapper">
+              <span class="dev-name">Led</span>
+            </div>
+            <div class="col s6 container-dev-time valign-wrapper">
+              <span class="dev-time">03:23:59:59</span>
+            </div>
+            <div class="col s2 container-dev-actions">
+              <a class="btn-floating btn-large waves-effect waves-light grey darken-3"><i class="material-icons">refresh</i></a>
+              <a class="btn-floating btn-large waves-effect waves-light grey darken-3"><i class="material-icons">clear</i></a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="content-card">
+
+        <div class="progress-info valign-wrapper z-depth-2">
+
+          <img class="circle progress-info-avatar" src="https://cdn.discordapp.com/avatars/148140588703809537/bc66573415e88574b5c508ec48a2d5fb.webp">
+          <span class="progress-info-name">Led</span>
+          <span class="progress-info-date">Há 4 horas</span>
+          <div class="progress-actions-container">
+            <a class="btn-floating btn-large waves-effect waves-light grey darken-3 progress-action"><i class="material-icons">check</i></a>
+            <a class="btn-floating btn-large waves-effect waves-light grey darken-3 progress-action"><i class="material-icons">clear</i></a>
+          </div>
+
+        </div>
+        <div class="inner-progress-container">
+          <img src="https://media.giphy.com/media/l2QDQlFUPEYYQg2A0/giphy.gif" alt="" class="responsive-img progress-image"/>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</body>
+<template name="progress-template">
+  <div class="content-card" id="{{url}}">
+      <div class="progress-info valign-wrapper z-depth-2">
+        <img class="circle progress-info-avatar" src="{{avatar}}">
+        <span class="progress-info-name">{{username}}</span>
+        <span class="progress-info-date">{{date}}</span>
+        <div class="progress-actions-container">
+          <a class="btn-floating btn-large waves-effect waves-light grey darken-3 progress-action" onclick="sendPost('approve','{{url}}')"><i class="material-icons">check</i></a>
+          <a class="btn-floating btn-large waves-effect waves-light grey darken-3 progress-action" onclick="sendPost('recuse','{{url}}')"><i class="material-icons">clear</i></a>
+        </div>
+      </div>
+      <div class="inner-progress-container">
+        <img src="{{url}}" alt="" class="responsive-img progress-image"/>
+      </div>
+  </div>
+</template>
+</html>
