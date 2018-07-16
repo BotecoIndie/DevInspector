@@ -1,0 +1,10 @@
+{
+  "deleteDataOnServerExit": false,
+  "logLevel": 0,
+  "commandPrefix": "!",
+  "devRole": "Dev",
+  "days": 7,
+  "progressChannels": ["350088738824519690"],
+  "outputChannel": "468225595910651912",
+  "showcaseChannel": "272537151978209281"
+}
