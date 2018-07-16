@@ -395,14 +395,14 @@ exports = module.exports = {
                 "icon_url": obj.authorAvatar
             }
         };
-        channel.send(".", { embed }).then(function (message) {
+        channel.send({ embed }).then(function (message) {
             message.react("✅");
             message.react("❌");
         });
 
         embed.fields = [];
 
-        showcaseChannel.send(".", { embed });
+        showcaseChannel.send({ embed });
     },
     addDev: function(guildMember)
     {
