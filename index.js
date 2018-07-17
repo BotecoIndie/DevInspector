@@ -3,6 +3,16 @@ var utility = require('./my_modules/utility.js');
 var fs = require("fs");
 var path = require("path");
 
+// Check if the data folder exists, if not, creates it
+if (!fs.existsSync('./data')) {
+    fs.mkdirSync('./data');
+}
+
+// Check if .token file exists
+if (!fs.existsSync('.token')) {
+    throw new Error('The file .token does not exist!');
+}
+
 //Load all command modules
 fs.readdir("./commands/", (err, files) => {
     if (!err) {
