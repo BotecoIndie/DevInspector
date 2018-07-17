@@ -9,7 +9,7 @@ if (!fs.existsSync('./data')) {
 }
 
 // Check if .token file exists
-if (!fs.existsSync('.token')) {
+if (!fs.existsSync('.token') && !process.env.DISCORD_TOKEN) {
   throw new Error('The file .token does not exist!');
 }
 
