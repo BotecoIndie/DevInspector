@@ -371,13 +371,13 @@ exports = module.exports = {
       };
 
       channel.send({ embed }).then(function (message) {
-        message.react('✅');
-        message.react('❌');
-      });
+        message.react('✅').catch(console.error);
+        message.react('❌').catch(console.error);
+      }).catch(console.error);
 
       embed.fields = [];
 
-      showcaseChannel.send({ embed });
+      showcaseChannel.send({ embed }).catch(console.error);
     }
     else
     {
@@ -402,14 +402,17 @@ exports = module.exports = {
         },
       };
 
-      channel.send("Pré-visualização: " + obj.url, { embed }).then(function (message) {
-        message.react('✅');
-        message.react('❌');
-      });
+      channel.send({ embed }).then(function (message) {
+        message.react('✅').catch(console.error);
+        message.react('❌').catch(console.error);
+        channel.send("Pré-visualização: " + obj.url).catch(console.error);
+      }).catch(console.error);
 
       embed.fields = [];
 
-      showcaseChannel.send("Pré-visualização: " + obj.url, { embed });
+      showcaseChannel.send({ embed }).then(function(message){
+        showcaseChannel.send("Pré-visualização: " + obj.url).catch(console.error);
+      }).catch(console.error);
     }
   },
   addDev: function(guildMember) {
