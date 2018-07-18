@@ -330,7 +330,6 @@ exports = module.exports = {
     }
   },
   sendProgress: function(obj) {
-    //Formatar direito e enviar nos dois canais
     var channel = exports.bot.guilds
       .get(obj.serverId)
       .channels.get(exports.configObj.outputChannel);
@@ -344,37 +343,74 @@ exports = module.exports = {
     var G = Math.floor(Math.random() * 256);
     var B = Math.floor(Math.random() * 256);
 
-    var embed = {
-      description: arr.join(' ') || 'Nenhum descrição disponível.',
-      color: B * 65536 + G * 256 + R,
-      timestamp: obj.postTime.toISOString(),
-      footer: {
-        icon_url: exports.bot.user.avatarURL,
-        text: 'Progresso',
-      },
-      fields: [
-        {
-          name: 'Member ID',
-          value: obj.authorID,
-          inline: true,
+    var url = obj.url.toLowerCase();
+    if (url.endsWith(".png") || url.endsWith(".gif") || url.endsWith(".jpeg") || url.endsWith(".jpg"))
+    {
+      var embed = {
+        description: arr.join(' ') || 'Nenhum descrição disponível.',
+        color: B * 65536 + G * 256 + R,
+        timestamp: obj.postTime.toISOString(),
+        footer: {
+          icon_url: exports.bot.user.avatarURL,
+          text: 'Progresso',
         },
-      ],
-      image: {
-        url: obj.url,
-      },
-      author: {
-        name: obj.author,
-        icon_url: obj.authorAvatar,
-      },
-    };
-    channel.send({ embed }).then(function(message) {
-      message.react('✅');
-      message.react('❌');
-    });
+        fields: [
+          {
+            name: 'Member ID',
+            value: obj.authorID,
+            inline: true,
+          },
+        ],
+        image: {
+          url: obj.url,
+        },
+        author: {
+          name: obj.author,
+          icon_url: obj.authorAvatar,
+        },
+      };
 
-    embed.fields = [];
+      channel.send({ embed }).then(function (message) {
+        message.react('✅');
+        message.react('❌');
+      });
 
-    showcaseChannel.send({ embed });
+      embed.fields = [];
+
+      showcaseChannel.send({ embed });
+    }
+    else
+    {
+      var embed = {
+        description: arr.join(' ') || 'Nenhum descrição disponível.',
+        color: B * 65536 + G * 256 + R,
+        timestamp: obj.postTime.toISOString(),
+        footer: {
+          icon_url: exports.bot.user.avatarURL,
+          text: 'Progresso',
+        },
+        fields: [
+          {
+            name: 'Member ID',
+            value: obj.authorID,
+            inline: true,
+          },
+        ],
+        author: {
+          name: obj.author,
+          icon_url: obj.authorAvatar,
+        },
+      };
+
+      channel.send("Pré-visualização: " + obj.url, { embed }).then(function (message) {
+        message.react('✅');
+        message.react('❌');
+      });
+
+      embed.fields = [];
+
+      showcaseChannel.send("Pré-visualização: " + obj.url, { embed });
+    }
   },
   addDev: function(guildMember) {
     console.log('ID: ' + guildMember.id);
