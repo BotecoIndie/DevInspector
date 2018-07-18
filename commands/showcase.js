@@ -12,7 +12,7 @@ utility.commandAdd({
       if (attachments.first() != undefined) {
         utility.processAttachments(message);
       }
-      setTimeout(utility.processEmbeds, 1000, message);
+      setTimeout(utility.processEmbeds, 1500, message);
     }
   },
 });
