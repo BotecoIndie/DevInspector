@@ -347,7 +347,7 @@ exports = module.exports = {
     if (url.endsWith(".png") || url.endsWith(".gif") || url.endsWith(".jpeg") || url.endsWith(".jpg"))
     {
       var embed = {
-        description: arr.join(' ') || 'Nenhum descrição disponível.',
+        description: arr.join(' ') || 'Nenhuma descrição disponível.',
         color: B * 65536 + G * 256 + R,
         timestamp: obj.postTime.toISOString(),
         footer: {
@@ -382,7 +382,7 @@ exports = module.exports = {
     else
     {
       var embed = {
-        description: arr.join(' ') || 'Nenhum descrição disponível.',
+        description: arr.join(' ') || 'Nenhuma descrição disponível.',
         color: B * 65536 + G * 256 + R,
         timestamp: obj.postTime.toISOString(),
         footer: {
