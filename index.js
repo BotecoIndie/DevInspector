@@ -66,6 +66,11 @@ bot.on('ready', function() {
                     id: serverId,
                   },
                 });
+                utility.sendMessage({
+                  "message": "<@!" + obj.devs[j].id + ">" + ", seu tempo com o cargo de dev acabou.",
+                  "to": "285851488625098752",
+                  "serverId": serverId
+                });
               }
             }
           }
