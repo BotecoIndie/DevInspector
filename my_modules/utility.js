@@ -6,7 +6,7 @@ exports = module.exports = {
   commands: [],
   configObj: {
     deleteDataOnServerExit: false,
-    logLevel: 0,
+    logLevel: 1,
     commandPrefix: '!',
     devRole: 'Devs',
     days: 7,
@@ -40,10 +40,10 @@ exports = module.exports = {
     }
   },
   getMemberData: function(serverId, memberId) {
-    if (!fs.existsSync('./data/' + serverId)) {
+    if (!fs.existsSync(path.resolve(process.cwd(),'./data/' + serverId))) {
       return null;
     }
-    if (!fs.existsSync('./data/' + serverId + '/' + memberId + '.json')) {
+    if (!fs.existsSync(path.resolve(process.cwd(),'./data/' + serverId + '/' + memberId + '.json'))) {
       return null;
     }
     return JSON.parse(
