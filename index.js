@@ -147,7 +147,7 @@ bot.on('messageReactionAdd', function(messageReaction, user) {
 });
 
 process.on('uncaughtException', function(err) {
-  bot.guilds.get("294266531280584706").channels.get("286314605163053057").send(err.stack);
+  console.log(err.stack);
   utility.writeLog(err.stack, LOGTYPE.ERROR);
 });
 
