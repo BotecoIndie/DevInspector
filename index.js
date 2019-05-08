@@ -2,6 +2,16 @@ var Discord = require('discord.js');
 var utility = require('./my_modules/utility.js');
 var fs = require('fs');
 var path = require('path');
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
+});
 
 // Check if the data folder exists, if not, creates it
 if (!fs.existsSync('./data')) {
