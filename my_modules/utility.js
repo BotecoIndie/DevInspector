@@ -9,7 +9,7 @@ exports = module.exports = {
     logLevel: 1,
     commandPrefix: '!',
     devRole: 'Devs',
-    days: 7,
+    days: 21,
     progressChannels: [],
     outputChannel: '',
     showcaseChannel: '',
